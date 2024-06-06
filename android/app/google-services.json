@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513129336045",
+    "project_id": "alesco-hotelio",
+    "storage_bucket": "alesco-hotelio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513129336045:android:16c816967281e45f9210e4",
+        "android_client_info": {
+          "package_name": "com.alesco.hotelio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9GGJjUlwxEkAVXCA_Cx_DVKfHDF9YKfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
