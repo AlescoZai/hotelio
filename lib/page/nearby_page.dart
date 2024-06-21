@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hotel/config/app_asset.dart';
 import 'package:hotel/config/app_color.dart';
 import 'package:hotel/config/app_format.dart';
+import 'package:hotel/config/app_route.dart';
 import 'package:hotel/controller/c_nearby.dart';
 import 'package:hotel/model/hotel.dart';
 
@@ -41,98 +42,103 @@ class NearbyPage extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             Hotel hotel = list[index];
-            return Container(
-              margin: EdgeInsets.fromLTRB(
-                16,
-                index == 0 ? 0 : 8,
-                16,
-                index == list.length - 1 ? 16 : 8
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Image.network(
-                        hotel.cover,
-                        fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, AppRoute.detail, arguments: hotel);
+              },
+              child: Container(
+                margin: EdgeInsets.fromLTRB(
+                  16,
+                  index == 0 ? 0 : 8,
+                  16,
+                  index == list.length - 1 ? 16 : 8
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      child: AspectRatio(
+                        aspectRatio: 16 / 9,
+                        child: Image.network(
+                          hotel.cover,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                hotel.name,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(fontWeight: FontWeight.bold),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 4),
-                              Row(
-                                children: [
-                                  const Text(
-                                    'Start from ',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 13,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  hotel.name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(fontWeight: FontWeight.bold),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(height: 4),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      'Start from ',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 13,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    AppFormat.currency(hotel.price.toDouble()),
-                                    style: const TextStyle(
-                                      color: AppColor.secondary,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold
+                                    Text(
+                                      AppFormat.currency(hotel.price.toDouble()),
+                                      style: const TextStyle(
+                                        color: AppColor.secondary,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold
+                                      ),
                                     ),
-                                  ),
-                                  const Text(
-                                    '/night',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 13,
+                                    const Text(
+                                      '/night',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 13,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              )
-                            ],
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        RatingBar.builder(
-                          initialRating: hotel.rate,
-                          minRating: 0,
-                          direction: Axis.horizontal,
-                          allowHalfRating: true,
-                          itemCount: 5,
-                          itemBuilder: (context, _) => const Icon(
-                            Icons.star_rate_rounded,
-                            color: AppColor.starActive,
-                          ),
-                          onRatingUpdate: (rating) {},
-                          ignoreGestures: true,
-                          itemSize: 18,
-                          unratedColor: AppColor.starInactive,
-                        )
-                      ],
-                    ),
-                  )
-                ],
+                          RatingBar.builder(
+                            initialRating: hotel.rate,
+                            minRating: 0,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemBuilder: (context, _) => const Icon(
+                              Icons.star_rate_rounded,
+                              color: AppColor.starActive,
+                            ),
+                            onRatingUpdate: (rating) {},
+                            ignoreGestures: true,
+                            itemSize: 18,
+                            unratedColor: AppColor.starInactive,
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },
