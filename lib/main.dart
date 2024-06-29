@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
         AppRoute.detail: (context) => DetailPage(),
         AppRoute.checkout: (context) => CheckoutPage(),
         AppRoute.checkoutSuccess: (context) => const CheckoutSuccessPage(),
-        AppRoute.detailBooking: (context) => DetailBookingPage(),
+        AppRoute.detailBooking: (context) => const DetailBookingPage(),
       },
     );
   }

@@ -8,7 +8,6 @@ import 'package:hotel/config/app_route.dart';
 import 'package:hotel/controller/c_history.dart';
 import 'package:hotel/controller/c_user.dart';
 import 'package:hotel/model/booking.dart';
-import 'package:hotel/page/detail_booking_page.dart';
 import 'package:intl/intl.dart';
 
 class HistoryPage extends StatefulWidget {

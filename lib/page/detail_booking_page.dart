@@ -5,7 +5,7 @@ import 'package:hotel/config/app_format.dart';
 import 'package:hotel/model/booking.dart';
 
 class DetailBookingPage extends StatelessWidget {
-  DetailBookingPage({super.key});
+  const DetailBookingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
