@@ -8,6 +8,7 @@ import 'package:hotel/config/session.dart';
 import 'package:hotel/model/user.dart';
 import 'package:hotel/page/checkout_page.dart';
 import 'package:hotel/page/checkout_success_page.dart';
+import 'package:hotel/page/detail_booking_page.dart';
 import 'package:hotel/page/detail_page.dart';
 import 'package:hotel/page/home_page.dart';
 import 'package:hotel/page/intro_page.dart';
@@ -59,8 +60,8 @@ class MyApp extends StatelessWidget {
         AppRoute.signin: (context) => SigninPage(),
         AppRoute.detail: (context) => DetailPage(),
         AppRoute.checkout: (context) => CheckoutPage(),
-        AppRoute.checkoutSuccess: (context) => const checkoutSuccessPage(),
-        AppRoute.detailBooking: (context) => const IntroPage(),
+        AppRoute.checkoutSuccess: (context) => const CheckoutSuccessPage(),
+        AppRoute.detailBooking: (context) => DetailBookingPage(),
       },
     );
   }

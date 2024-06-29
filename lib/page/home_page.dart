@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:hotel/config/app_asset.dart';
 import 'package:hotel/config/app_color.dart';
 import 'package:hotel/controller/c_home.dart';
+import 'package:hotel/page/history_page.dart';
 import 'package:hotel/page/nearby_page.dart';
+import 'package:hotel/widget/coming_soon.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -19,10 +21,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() {
-        if (cHome.indexPage == 1) {
-          return const Scaffold();
+        if (cHome.indexPage == 0) {
+          return NearbyPage();
         }
-        return NearbyPage();
+        if (cHome.indexPage == 1) {
+          return const HistoryPage();
+        }
+        return const ComingSoon();
       }),
       bottomNavigationBar: Obx(() {
           return Material(

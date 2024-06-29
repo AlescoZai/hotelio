@@ -5,8 +5,8 @@ import 'package:hotel/model/hotel.dart';
 import 'package:hotel/page/home_page.dart';
 import 'package:hotel/widget/button_custom.dart';
 
-class checkoutSuccessPage extends StatelessWidget {
-  const checkoutSuccessPage({super.key});
+class CheckoutSuccessPage extends StatelessWidget {
+  const CheckoutSuccessPage({super.key});
 
   @override
   Widget build(BuildContext context) {

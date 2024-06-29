@@ -26,7 +26,6 @@ class CNearby extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     getListHotel();
     super.onInit();
   }
